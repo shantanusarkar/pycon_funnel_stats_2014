@@ -34,6 +34,9 @@ def stats(request):
     asoftware = program.a_software(page)
     aweb = program.a_web(page)
     awork = program.a_workshops(page)
+    beginner_graph = program.beginner_graph(page)
+    intermediate_graph = program.intermediate_graph(page)
+    advanced_graph = program.advanced_graph(page)
     context = Context({'total':total, 'begineer':proposallist[0],
             'intermediate': proposallist[1],'advanced':proposallist[2], 
             'beginnerchart': section[0], 'intermediatechart': section[1], 
@@ -54,6 +57,7 @@ def stats(request):
             'iinfra' : iinfra, 'iscientific' : iscientific, 'isoftware' : isoftware,
             'iweb' : iweb, 'iwork' : iwork, 'acore' : acore, 'aembedded' : aembedded,
             'ainfra' : ainfra, 'ascientific' : ascientific, 'asoftware' : asoftware,
-            'aweb' : aweb, 'awork' : awork})
+            'aweb' : aweb, 'awork' : awork, 'beg_graph' : beginner_graph,
+            'int_graph' : intermediate_graph, 'adv_graph' : advanced_graph})
     return render_to_response("home.html", context)
 

@@ -896,3 +896,68 @@ def a_workshops(page):
                 workshops.append(temp)
     return workshops
 
+def beginner_graph(page):
+    soup = BeautifulSoup(page)
+    extras = soup.find_all('tbody')
+    proposals = []
+    workshops = []
+    working = ['Speaker', 'Likes']
+    workshops.append(working)
+
+    for extra in extras[::2]:
+        proposals.append(extra)
+
+    for proposal in proposals:
+        detail = proposal.find_all('tr')
+        level = detail[1].find_all('td')[5].string
+        section = detail[1].find_all('td')[3].string
+        if level == "Beginner":
+            temp = []
+            temp.append(str(detail[1].find_all('td')[1].string))
+            temp.append(int(detail[1].find_all('td')[6].string))
+            workshops.append(temp)
+    return workshops
+
+def intermediate_graph(page):
+    soup = BeautifulSoup(page)
+    extras = soup.find_all('tbody')
+    proposals = []
+    workshops = []
+    working = ['Speaker', 'Likes']
+    workshops.append(working)
+
+    for extra in extras[::2]:
+        proposals.append(extra)
+
+    for proposal in proposals:
+        detail = proposal.find_all('tr')
+        level = detail[1].find_all('td')[5].string
+        if level == "Intermediate":
+            temp = []
+            temp.append(str(detail[1].find_all('td')[1].string))
+            temp.append(int(detail[1].find_all('td')[6].string))
+            workshops.append(temp)
+    return workshops
+
+def advanced_graph(page):
+    soup = BeautifulSoup(page)
+    extras = soup.find_all('tbody')
+    proposals = []
+    workshops = []
+    working = ['Speaker', 'Likes']
+    workshops.append(working)
+
+    for extra in extras[::2]:
+        proposals.append(extra)
+
+    for proposal in proposals:
+        detail = proposal.find_all('tr')
+        level = detail[1].find_all('td')[5].string
+        if level == "Advanced":
+            temp = []
+            temp.append(str(detail[1].find_all('td')[1].string))
+            temp.append(int(detail[1].find_all('td')[6].string))
+            workshops.append(temp)
+    return workshops
+
+
